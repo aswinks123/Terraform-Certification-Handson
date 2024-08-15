@@ -46,7 +46,7 @@ variable "container_names" {
 
 
 #MAP variable
-# MAP variable to inject multiple ENV inside the container
+#MAP variable to inject multiple ENV inside the container
 
 variable "env_variables" {
   description = "Environment variables for the container"
@@ -68,6 +68,8 @@ resource "docker_container" "nginx" {
   count = length(var.container_names)
   name  = var.container_names[count.index]
   image = docker_image.nginx.image_id
+  #Refering the MAP variable to inject the env variables
+  env = [for k, v in var.env_variables : "${k}=${v}"]
 
 #Map the host port variable to container port variable. Here we uses count.index to increment the external port 
 
