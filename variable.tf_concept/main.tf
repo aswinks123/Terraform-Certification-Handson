@@ -18,7 +18,7 @@ terraform {
   }
 }
 
-# Find the latest Ubuntu precise image.
+# Find the latest nginx  image.
 
 resource "docker_image" "nginx" {
   name = "nginx:latest"
