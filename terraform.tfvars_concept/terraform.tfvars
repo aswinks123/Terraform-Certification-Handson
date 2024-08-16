@@ -5,5 +5,5 @@ internal_port = 80
 
 external_port = 5000
 
-container_name = terraform-nginx
+container_name = "terraform-nginx-from-terraform.tfvars"
   
