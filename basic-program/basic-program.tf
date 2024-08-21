@@ -15,7 +15,7 @@ resource "docker_image" "nginx" {
   name = "nginx:latest"
 }
 
-#------------------------------------------------------------------VARIABLE BLOCK END-------------------------------
+#------------------------------------------------------------------VARIABLE BLOCK START-------------------------------
 #Using variable to provide internal and external port
 
 variable "internal_port" {
