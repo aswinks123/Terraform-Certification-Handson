@@ -45,10 +45,12 @@ resource "docker_container" "nginx" {
   image = docker_image.nginx.image_id
   name  = "nginx_multiple_port_container"
 
+# Dynamic block. Here it will iterate over a variable list of ports that we already created and assigned one by one.
   dynamic "ports" {
     for_each = var.container_ports
     content {
       internal = 80
+      #it iterated the value of port. ie, first ports=8081 then ports=8082....
       external = ports.value
     }
   }
